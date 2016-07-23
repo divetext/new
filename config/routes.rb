@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs
-  get 'welcome/index'
-
+  resources :contacts, only: [:new, :create, :index]
+  post "confirm" => "contacts#confirm"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

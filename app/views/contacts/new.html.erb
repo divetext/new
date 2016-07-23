@@ -1,0 +1,19 @@
+<h2>新規お問い合わせ</h2>
+
+<%= form_for @contact, :url => confirm_path do |f| %>
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+<div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+</div>
+<div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+</div>
+<div class="form-group">
+    <%= f.submit %>
+</div>
+<% end %>
