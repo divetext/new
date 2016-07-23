@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewText</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "layouts/header" %>
+
+<%= yield %>
+
+        <footer>
+              <p>運営会社Dive into Code株式会社</p>
+              <p>© 2015-2016 Copyright Dive into Code Corp.</p>
+        </footer>
+
+</body>
+</html>
