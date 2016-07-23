@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :blogs
   resources :contacts, only: [:new, :create, :index]
   post "confirm" => "contacts#confirm"
