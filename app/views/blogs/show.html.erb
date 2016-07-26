@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @blog.title %>
@@ -8,6 +7,16 @@
 <p>
   <strong>Content:</strong>
   <%= @blog.content %>
+</p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @blog.user.id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blog.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |

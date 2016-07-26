@@ -1,19 +1,33 @@
 <h2>新規お問い合わせ</h2>
 
+<% if @contact.errors.any? %>
+    <%= @contact.errors.count %>個のエラーがあります。
+        <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+<% end %>
+
 <%= form_for @contact, :url => confirm_path do |f| %>
-<div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-</div>
-<div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-</div>
-<div class="form-group">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-</div>
-<div class="form-group">
-    <%= f.submit %>
-</div>
+
+        <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.label :content %>
+            <%= f.text_area :content %>
+        </div>
+        
+        <div class="form-group">
+            <%= f.submit %>
+        </div>
+        
 <% end %>

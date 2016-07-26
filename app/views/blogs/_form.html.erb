@@ -10,6 +10,11 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= @blog.user.id %>
+    <%= @blog.user.name %>
+  </div>
 
   <div class="field">
     <%= f.label :title %><br>

@@ -49,4 +49,9 @@ gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで
 gem 'twitter-bootstrap-rails' # Bootstrapの本体
 gem 'sprockets', '3.6.3'
 gem 'devise'
+gem 'jquery-turbolinks'
+gem 'devise-i18n'
+gem 'therubyracer', platforms: :ruby
+gem 'rails_admin'
+gem 'cancan'
 

@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /blogs
   # GET /blogs.json
@@ -10,11 +11,13 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog.user_id = current_user.id
   end
 
   # GET /blogs/new
   def new
     @blog = Blog.new
+    @blog.user_id = current_user.id
   end
 
   # GET /blogs/1/edit
@@ -25,10 +28,11 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to @blog, notice: 'ブログが正常に作成されました' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to @blog, notice: 'ブログが正常に更新されました' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }

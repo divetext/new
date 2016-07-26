@@ -16,9 +16,9 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
         if params[:back]
             render :action => "new"
-        elsif @contact.save
-            redirect_to root_path, notice: "お問い合わせありがとうございます！"
         else
+            @contact.save
+            ContactMailer.contact_email(@contact).deliver
             redirect_to root_path, notice: "お問い合わせありがとうございます！"
         end
     end

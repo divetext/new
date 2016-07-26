@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :blogs
   resources :contacts, only: [:new, :create, :index]
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  
+   match "*path" => "application#handle_404", via: :all
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
