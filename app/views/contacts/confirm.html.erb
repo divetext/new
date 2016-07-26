@@ -1,12 +1,29 @@
 <h3>以下の内容で、送信する。</h3>
 
 <%= form_for @contact, :url => contacts_path do |f| %>
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :email %>
-  <%= f.hidden_field :content %>
-  <p>タイトル:<%= @contact.name %></p>
-  <p>本文:<%= @contact.email %></p>
-  <p>本文:<%= @contact.content %></p>
-  <%= f.submit "登録する" %>
-  <%= f.submit "戻る", name: "back" %>
+
+<div class="row">
+  <div class="col-xm-12">
+    <div class="thumbnail">
+      <div class="caption">
+                
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :content %>
+                
+        <p><strong>タイトル</strong>:<%= @contact.name %></p>
+        
+        <p><strong>メールアドレス</strong>:<%= @contact.email %></p>
+        
+        <p><strong>本文</strong>:<%= @contact.content %></p>
+      
+          <%= f.submit "登録する", class: "btn btn-primary" %>
+          <%= f.submit "戻る", name: "back", class: "btn btn-default" %>
+          
+      </div>
+    </div>
+  </div>
+</div>
+
 <% end %>
+

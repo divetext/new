@@ -1,14 +1,15 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
   <ul class="formList">
     <li><%= f.label :email %></li>
-    <li><%= f.email_field :email, autofocus: true %></li>
+    <li><%= f.email_field :email, autofocus: true, class: "form-control" %></li>
 
 
     <li><%= f.label :password %></li>
-    <li><%= f.password_field :password, autocomplete: "off" %></li>
+    <li><%= f.password_field :password, autocomplete: "off", class: "form-control" %></li>
 
 
   <% if devise_mapping.rememberable? -%>
@@ -18,7 +19,7 @@
 
   <% end -%>
 
-    <li><%= f.submit "Log in" %></li>
+    <li><%= f.submit "Log in", class: "btn btn-primary" %></li>
   </ul>
 <% end %>
 
