@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, notice: "アクセス権限がありません"
+    redirect_to main_app.root_url, :alert => exception.message
   end
   
   before_action :devise_parameter, if: :devise_controller?
