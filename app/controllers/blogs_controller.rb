@@ -11,13 +11,12 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog.user_id = current_user.id
+    
   end
 
   # GET /blogs/new
   def new
     @blog = Blog.new
-    @blog.user_id = current_user.id
   end
 
   # GET /blogs/1/edit

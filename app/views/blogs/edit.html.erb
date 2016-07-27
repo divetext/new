@@ -1,6 +1,35 @@
 <h1>Editing Blog</h1>
 
-<%= render 'form' %>
+<%= form_for(@blog) do |f| %>
+  <% if @blog.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@blog.errors.count, "error") %></h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= @blog.user_id %>
+    <%= @blog.user.name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @blog %> |
 <%= link_to 'Back', blogs_path %>
