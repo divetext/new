@@ -27,6 +27,7 @@
 <li><%= link_to "ブログ", blogs_path %></li>
 <li><%= link_to "お問い合わせ", new_contact_path %></li>
 <% if user_signed_in? %>
+<li><%= link_to "アカウント編集", edit_user_registration_path %></li>
 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 <% else %>
 <li><%= link_to "ログイン", new_user_session_path %></li>
