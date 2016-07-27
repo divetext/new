@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, :alert => exception.message
-  end
-  
   before_action :devise_parameter, if: :devise_controller?
   
   def devise_parameter
@@ -50,5 +46,9 @@ class ApplicationController < ActionController::Base
     end
   end
   #例外処理　終了
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, :alert => exception.message
+  end
   
 end
