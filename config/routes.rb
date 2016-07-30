@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+}
+  
   resources :blogs
   resources :contacts, only: [:new, :create, :index]
   post "confirm" => "contacts#confirm"

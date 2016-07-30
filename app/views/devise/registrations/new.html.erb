@@ -2,28 +2,38 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <ul class="formList">
-    <li><%= f.label :name %></li>
-    <li><%= f.text_field :name, autofocus: true, class: "form-control" %></li>
   
+<div class="field">
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+</div>
 
-    <li><%= f.label :email %></li>
-    <li><%= f.email_field :email, autofocus: true, class: "form-control" %></li>
+<div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: "form-control" %>
+</div>
 
+<div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+</div>
 
-    <li><%= f.label :password %></li>
+<div class="field">
+    <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <li><%= f.password_field :password, autocomplete: "off", class: "form-control" %></li>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+</div>
 
-
-    <li><%= f.label :password_confirmation %></li>
-    <li><%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %></li>
-
+<div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+</div>  
+    
+<div class="field">
     <li><%= f.submit "Sign up", class: "btn btn-primary" %></li>
-  </ul>
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>

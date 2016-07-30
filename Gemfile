@@ -55,4 +55,9 @@ gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
 gem 'cancan'
 gem 'dotenv-rails'
-
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'pry-rails'
