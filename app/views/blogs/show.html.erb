@@ -4,7 +4,16 @@
   <div class="col-xm-12">
     <div class="thumbnail">
       <div class="caption">
+        
+        <div class="photo center">
+          <%= profile_img @blog.user %>
+        </div>
+        
         <p>
+          ID：<%= @blog.user_id %><br>
+          NAME：<%= @blog.user.name %></p>
+        <p>
+          
         <strong>Title:</strong>
         <%= @blog.title %>
         </p>
@@ -13,11 +22,11 @@
           <strong>Content:</strong>
           <%= @blog.content %>
       </p>
-      
-        <p><%= @blog.user_id %>
-          <%= @blog.user.name %></p>
           
-        <p><%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-primary" %></p>
+        <p>
+          <%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-primary" %>
+          <%= link_to "Back", blogs_path, class: "btn btn-default" %>
+        </p>
       </div>
     </div>
   </div>

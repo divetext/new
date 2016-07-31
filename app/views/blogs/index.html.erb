@@ -9,10 +9,19 @@
   <div class="col-xm-12">
     <div class="thumbnail">
       <div class="caption">
-        <%= profile_img blog.user %>
+        
+        <div class="photo center">
+          <%= profile_img blog.user %>
+        </div>
+        
         <h3><%= link_to blog.title, blog %></h3>
+        <p>
+          ID：<%= blog.user.id %>
+          NAME：<%= blog.user.name %><br>
+        </p>
         <p><%= blog.content %></p>
         <p><%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %> <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+        
       </div>
     </div>
   </div>
