@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  
+
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
 }
   
-  resources :blogs
+  resources :blogs do
+    resources :comments
+  end
   resources :contacts, only: [:new, :create, :index]
   post "confirm" => "contacts#confirm"
   # The priority is based upon order of creation: first created -> highest priority.

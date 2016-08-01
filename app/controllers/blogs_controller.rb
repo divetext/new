@@ -11,7 +11,9 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    
+    #入力フォームと一覧を表示させるためのインスタンスを作成
+    @comment = @blog.comments.build
+    @comments = @blog.comments
   end
 
   # GET /blogs/new

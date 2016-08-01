@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
          
   has_many :blogs, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil) 
     user = User.where(provider: auth.provider, uid: auth.uid).first
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
                       email: auth.info.email, 
                       image_url: auth.info.image, 
                       password: Devise.friendly_token[0,20]
-                      ) 
+                      )
     #binding.pry
     end 
   user
