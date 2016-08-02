@@ -7,7 +7,7 @@ module ApplicationHelper
     else
       img_url = 'no-image.jpg'
     end
-    image_tag(img_url, alt: user.name)
+    image_tag(img_url)
   end
 end
 
