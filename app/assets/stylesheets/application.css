@@ -25,3 +25,6 @@ li {
   width:80px;
   height:80px;
 }
+.photo a:hover {
+  background-color:white;
+}
