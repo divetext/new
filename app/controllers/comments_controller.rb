@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
           #js形式でレスポンスを返す
           format.js { render "index" }
         else
-          format.html { render new }
+          format.html { render "new", notice: "コメントを入力してください" }
         end
       end
   end

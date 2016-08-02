@@ -9,7 +9,9 @@
         <p class="left"><%= comment.content %></p>
         <% if current_user.id == comment.user.id %>
           <p class="right">
+            <% if current_user.id == comment.user_id %>
             <%= link_to '', blog_comment_path(blog, comment), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
+            <% end %>
           </p>
         <% end %>
       </li>

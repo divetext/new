@@ -3,7 +3,9 @@
 
 <%= link_to 'New Blog', new_blog_path %>
 
-<% @blogs.each do |blog| %>
+
+
+<% @my_blog.each do |blog| %>
 
 <div class="row">
   <div class="col-xm-12">
@@ -20,14 +22,45 @@
           NAME：<%= blog.user.name %><br>
         </p>
         <p><%= blog.content %></p>
+        <% if current_user.id == blog.user_id %>
         <p><%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %> <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
-        
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
 <% end %>
+
+<% @follow_blogs.each do |blog| %>
+
+<div class="row">
+  <div class="col-xm-12">
+    <div class="thumbnail">
+      <div class="caption">
+        
+        <div class="photo center">
+          <%= profile_img blog.user %>
+        </div>
+        
+        <h3><%= link_to blog.title, blog %></h3>
+        <p>
+          ID：<%= blog.user.id %>
+          NAME：<%= blog.user.name %><br>
+        </p>
+        <p><%= blog.content %></p>
+        <% if current_user.id == blog.user_id %>
+        <p><%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %> <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+
+
 
 <div id="page-top-btn" class="page-top-btn">
   <p><a class="move-page-top" id="move-page-top">▲</a></p>

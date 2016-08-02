@@ -6,10 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-100.times do |n|
+
+
+50.times do |n|
+    name = Faker::Name.name
+    email = "example#{n+1}@example.com"
+    password = "password"
+    provider = "provider#{n+1}"
+User.create!(name: name, email: email, password: password, provider: provider)
+end
+
+50.times do |n|
     rand_id = 0
     until User.find_by_id(rand_id) != nil do
-        rand_id = rand(1..150)
+        rand_id = rand(1..100)
     end
     title = "タイトル#{n+1}"
     content = "内容#{n+1}"

@@ -5,7 +5,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @my_blog = Blog.all.where(user: current_user)
+    @follow_blogs = Blog.all.where(user: current_user.followed_users)
   end
 
   # GET /blogs/1

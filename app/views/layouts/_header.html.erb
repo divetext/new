@@ -24,9 +24,11 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
-<li><%= link_to "ブログ", blogs_path %></li>
+
 <li><%= link_to "お問い合わせ", new_contact_path %></li>
 <% if user_signed_in? %>
+<li><%= link_to "ブログ", blogs_path %></li>
+<li><%= link_to 'ユーザ一覧', users_path %></li>
 <li><%= link_to "アカウント編集", edit_user_registration_path %></li>
 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 <% else %>

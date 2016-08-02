@@ -16,3 +16,12 @@
 li {
     list-style:none;
 }
+.photo {
+  margin:0 auto;
+  border-radius:10px;
+}
+.photo img {
+  border-radius:40px;
+  width:80px;
+  height:80px;
+}

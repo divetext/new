@@ -1,0 +1,47 @@
+<h2>ユーザ詳細</h2>
+<div class="row">
+  <div class="col-xm-12">
+    <div class="thumbnail">
+      <div class="caption">
+        <%= @user.name %>
+        <div class="photo center">
+          <%= profile_img(@user) %>
+        </div>
+     
+      <p>
+        <%= link_to '戻る', users_path, class: "btn btn-default" %>
+      </p>
+          
+      </div>
+    </div>
+ </div>
+</div>
+
+<div class="follow_left">
+  <h3>フォロー</h3>
+  <div class="row">
+    <div class="container-child col-xs-6 ">
+        <% @user.followed_users.each do |followed| %>
+            <%= followed.name %>
+            <div class="photo">
+              <%= profile_img(followed) %>
+            </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<div class="follower_right">
+  <h3>フォロワー</h3>
+  <div class="row">
+    <div class="container-child col-xs-6 ">
+        <% @user.followers.each do |follower| %>
+            <%= follower.name %>
+            <div class="photo">
+               <%= profile_img(follower) %>
+              </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+
