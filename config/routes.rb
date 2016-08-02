@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'relationships/create'
-
-  get 'relationships/destroy'
-
+  resources :tasks
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
 }
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :tasks
+  end
   resources :relationships, only: [:create, :destroy]
   
   resources :blogs do
