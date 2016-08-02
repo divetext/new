@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             sign_in_and_redirect @user, event: :authentication
         else 
             session["devise.facebook_data"] = request.env["omniauth.auth"] 
-            redirect_to root_path, notice: 'メールアドレスが登録済みです、サインアップから登録してください。'
+            redirect_to root_path, notice: 'Facebookと同じメールアドレスのユーザがすでに登録済みです。サインアップから登録してください。'
         end
     end
  
