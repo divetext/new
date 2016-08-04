@@ -1,4 +1,4 @@
-<%= form_for(@task) do |f| %>
+<%= form_for([@task.user, @task]) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id %>
   </div>
   <div class="field">
     <%= f.label :title %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :charge_id %><br>
-    <%= f.number_field :charge_id %>
+    <%= f.hidden_field :charge_id %>
   </div>
   <div class="field">
     <%= f.label :done %><br>
@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.number_field :status %>
+    <%= f.select :status, [["未着手", "0"], ["対応中", "1"]] %>
   </div>
   <div class="actions">
     <%= f.submit %>

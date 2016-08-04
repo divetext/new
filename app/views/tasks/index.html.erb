@@ -19,16 +19,16 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.user %></td>
+        <td><%= task.user.name %></td>
         <td><%= task.title %></td>
         <td><%= task.content %></td>
         <td><%= task.deadline %></td>
         <td><%= task.charge_id %></td>
-        <td><%= task.done %></td>
-        <td><%= task.status %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= if task.done? then "完了" else "未完了" end %></td>
+        <td><%= task.status == 1? "対応中" : "未着手" %></td>
+        <td><%= link_to 'Show', user_task_path(task.user, task) %></td>
+        <td><%= link_to 'Edit', edit_user_task_path(task.user, task) %></td>
+        <td><%= link_to 'Destroy', user_task_path(task.user, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task', new_user_task_path(@user) %>

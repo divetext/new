@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          
   has_many :blogs, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :tasks, :dependent => :destroy
+  has_many :submit_request, dependent: :destroy
   
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
@@ -14,6 +16,10 @@ class User < ActiveRecord::Base
   #followers フォローされているユーザの取得
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
+  
+  def friend
+    followers & followed_users
+  end
   
   #指定のユーザをフォローする
 def follow!(other_user)
@@ -38,7 +44,7 @@ end
                       name: auth.extra.raw_info.name, 
                       provider: auth.provider, 
                       uid: auth.uid, 
-                      email: auth.info.email, 
+                      email: auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
                       image_url: auth.info.image, 
                       password: Devise.friendly_token[0,20]
                       )

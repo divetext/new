@@ -28,6 +28,8 @@
 <li><%= link_to "お問い合わせ", new_contact_path %></li>
 <% if user_signed_in? %>
 <li><%= link_to "ブログ", blogs_path %></li>
+<li><%= link_to "マイタスク", user_tasks_path(current_user.id) if user_signed_in? %></li>
+<li><%= link_to '新規依頼', user_submit_requests_path(current_user) if user_signed_in? %></li>
 <li><%= link_to 'ユーザ一覧', users_path %></li>
 <li><%= link_to "アカウント編集", edit_user_registration_path %></li>
 <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
