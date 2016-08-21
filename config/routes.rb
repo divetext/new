@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+resources :conversations do
+  resources :messages
+end
+
   resources :tasks
   devise_for :users, controllers: {
     registrations: "users/registrations",
@@ -18,7 +22,7 @@ Rails.application.routes.draw do
       end
   end
   resources :relationships, only: [:create, :destroy]
-  
+
   resources :blogs do
     resources :comments
   end
@@ -29,9 +33,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-  
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  
+
    match "*path" => "application#handle_404", via: :all
 
   # Example of regular route:
