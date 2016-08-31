@@ -16,7 +16,23 @@ class User < ActiveRecord::Base
   #followers フォローされているユーザの取得
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
+<<<<<<< HEAD
 
+=======
+  
+  #sns認証時パスワードなしでアカウント変更する
+  #モデル内でupdate_with_passwordをオーバーライドする
+  def update_with_password(params, *options)
+    if provider.blank?
+      super
+    else
+      params.delete :current_password
+      update_without_password(params, *options)
+    end
+  end
+  
+  
+>>>>>>> 13d86e45e55907bdc767e9f42f9ad21ca63cb2cc
   def friend
     followers & followed_users
   end

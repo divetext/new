@@ -62,6 +62,11 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'pry-rails'
 gem 'faker', '1.4.2'
+<<<<<<< HEAD
 gem 'pusher'
 gem 'hirb'         # モデルの出力結果を表形式で表示するGem
 gem 'hirb-unicode' # 日本語などマルチバイト文字の出力時の出力結果のずれに対応
+=======
+gem 'fog'
+gem 'aws-sdk'
+>>>>>>> 13d86e45e55907bdc767e9f42f9ad21ca63cb2cc

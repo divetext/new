@@ -8,7 +8,7 @@
 
 
 
-50.times do |n|
+10.times do |n|
     name = Faker::Name.name
     email = "example#{n+1}@example.com"
     password = "password"
@@ -16,10 +16,19 @@
 User.create!(name: name, email: email, password: password, provider: provider)
 end
 
-50.times do |n|
+
+
+
+
+10.times do |n|
     rand_id = 0
+<<<<<<< HEAD
     while User.find_by_id(rand_id) != nil do #⇦until
         rand_id = rand(1..1000)
+=======
+    while User.find_by_id(rand_id) != nil do
+        rand_id = rand(1..200)
+>>>>>>> 13d86e45e55907bdc767e9f42f9ad21ca63cb2cc
     end
     title = "タイトル#{n+1}"
     content = "内容#{n+1}"
