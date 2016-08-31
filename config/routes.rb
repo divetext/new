@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'notifications/index'
+
 resources :conversations do
   resources :messages
 end
 
-  resources :tasks
+#  resources :tasks
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
@@ -12,6 +14,7 @@ end
 
   resources :users, only: [:index, :show] do
     resources :tasks
+    resources :notifications, only: [:index]
       resources :submit_requests , shallow: true do
         get 'approve'
         get 'unapprove'

@@ -18,8 +18,8 @@ end
 
 50.times do |n|
     rand_id = 0
-    until User.find_by_id(rand_id) != nil do
-        rand_id = rand(1..100)
+    while User.find_by_id(rand_id) != nil do #⇦until
+        rand_id = rand(1..1000)
     end
     title = "タイトル#{n+1}"
     content = "内容#{n+1}"

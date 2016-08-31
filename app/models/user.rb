@@ -48,6 +48,7 @@ end
                       image_url: auth.info.image,
                       password: Devise.friendly_token[0,20]
                       )
+
     #binding.pry
     end
   user
